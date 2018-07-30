@@ -1,0 +1,29 @@
+{
+  "name": "oracle-examples",
+  "version": "0.0.1",
+  "description": "Oracle examples for the upcoming EIP standard.",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@gnosis.pm/truffle-nice-tools": "^1.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnosis/oracle-examples.git"
+  },
+  "keywords": [
+    "Oracle",
+    "Ethereum"
+  ],
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gnosis/oracle-examples/issues"
+  },
+  "homepage": "https://github.com/gnosis/oracle-examples#readme"
+}
