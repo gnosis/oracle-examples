@@ -4,7 +4,7 @@ import "../PushOracle.sol";
 import "../../test/contracts/OracleConsumer.sol";
 
 
-contract ParityWalletOracle is Oracle, PushOracle {
+contract ParityWalletOracle is Oracle {
 
     event ActivityFound(bool);
     // upon construction, log a certain set of balances, upon check test if they have changed
@@ -32,7 +32,7 @@ contract ParityWalletOracle is Oracle, PushOracle {
         // Should this function allow the user to automatically push the results to a consumer if the outcome is set?
     }
 
-    function pushOutcome(bytes32 id, bytes result, OracleConsumer consumer) public {
+    function pushOutcome(OracleConsumer consumer) public {
         consumer.receiveResult(bytes32(0), abi.encode(activityFound));
     }    
 }
