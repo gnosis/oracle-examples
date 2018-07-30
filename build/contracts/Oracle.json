@@ -14,40 +14,26 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "getOutcome",
-      "outputs": [
-        {
-          "name": "",
-          "type": "int256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
     }
   ],
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.4;\n\n\n/// @title Pull Oracle Interface - Functions to be implemented by oracles\ninterface Oracle {\n    function isOutcomeSet() public constant returns (bool);\n    function getOutcome() public constant returns (int);\n}\n",
-  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracles/PullOracle.sol",
+  "source": "pragma solidity ^0.4.4;\n\n/// @title Oracle Interface - Functions to be implemented by oracles\ninterface Oracle {\n    function isOutcomeSet() external constant returns (bool);\n}\n",
+  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/Oracle.sol",
   "ast": {
-    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracles/PullOracle.sol",
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/Oracle.sol",
     "exportedSymbols": {
       "Oracle": [
-        69
+        7
       ]
     },
-    "id": 70,
+    "id": 8,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 58,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -55,17 +41,17 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:0"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "interface",
-        "documentation": "@title Pull Oracle Interface - Functions to be implemented by oracles",
+        "documentation": "@title Oracle Interface - Functions to be implemented by oracles",
         "fullyImplemented": false,
-        "id": 69,
+        "id": 7,
         "linearizedBaseContracts": [
-          69
+          7
         ],
         "name": "Oracle",
         "nodeType": "ContractDefinition",
@@ -73,7 +59,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 63,
+            "id": 6,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -81,23 +67,23 @@
             "name": "isOutcomeSet",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 59,
+              "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "144:2:1"
+              "src": "138:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 62,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 61,
+                  "id": 4,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 63,
-                  "src": "172:4:1",
+                  "scope": 6,
+                  "src": "168:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -105,10 +91,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 60,
+                    "id": 3,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "172:4:1",
+                    "src": "168:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -118,89 +104,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "171:6:1"
+              "src": "167:6:0"
             },
-            "scope": 69,
-            "src": "123:55:1",
+            "scope": 7,
+            "src": "117:57:0",
             "stateMutability": "view",
             "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": null,
-            "documentation": null,
-            "id": 68,
-            "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": true,
-            "modifiers": [],
-            "name": "getOutcome",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 64,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "202:2:1"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 67,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 66,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 68,
-                  "src": "230:3:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_int256",
-                    "typeString": "int256"
-                  },
-                  "typeName": {
-                    "id": 65,
-                    "name": "int",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "230:3:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_int256",
-                      "typeString": "int256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "229:5:1"
-            },
-            "scope": 69,
-            "src": "183:52:1",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
+            "visibility": "external"
           }
         ],
-        "scope": 70,
-        "src": "100:137:1"
+        "scope": 8,
+        "src": "94:82:0"
       }
     ],
-    "src": "0:238:1"
+    "src": "0:177:0"
   },
   "legacyAST": {
-    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracles/PullOracle.sol",
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/Oracle.sol",
     "exportedSymbols": {
       "Oracle": [
-        69
+        7
       ]
     },
-    "id": 70,
+    "id": 8,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 58,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -208,17 +138,17 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:0"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "interface",
-        "documentation": "@title Pull Oracle Interface - Functions to be implemented by oracles",
+        "documentation": "@title Oracle Interface - Functions to be implemented by oracles",
         "fullyImplemented": false,
-        "id": 69,
+        "id": 7,
         "linearizedBaseContracts": [
-          69
+          7
         ],
         "name": "Oracle",
         "nodeType": "ContractDefinition",
@@ -226,7 +156,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 63,
+            "id": 6,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -234,23 +164,23 @@
             "name": "isOutcomeSet",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 59,
+              "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "144:2:1"
+              "src": "138:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 62,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 61,
+                  "id": 4,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 63,
-                  "src": "172:4:1",
+                  "scope": 6,
+                  "src": "168:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -258,10 +188,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 60,
+                    "id": 3,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "172:4:1",
+                    "src": "168:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -271,76 +201,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "171:6:1"
+              "src": "167:6:0"
             },
-            "scope": 69,
-            "src": "123:55:1",
+            "scope": 7,
+            "src": "117:57:0",
             "stateMutability": "view",
             "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": null,
-            "documentation": null,
-            "id": 68,
-            "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": true,
-            "modifiers": [],
-            "name": "getOutcome",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 64,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "202:2:1"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 67,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 66,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 68,
-                  "src": "230:3:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_int256",
-                    "typeString": "int256"
-                  },
-                  "typeName": {
-                    "id": 65,
-                    "name": "int",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "230:3:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_int256",
-                      "typeString": "int256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "229:5:1"
-            },
-            "scope": 69,
-            "src": "183:52:1",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
+            "visibility": "external"
           }
         ],
-        "scope": 70,
-        "src": "100:137:1"
+        "scope": 8,
+        "src": "94:82:0"
       }
     ],
-    "src": "0:238:1"
+    "src": "0:177:0"
   },
   "compiler": {
     "name": "solc",
@@ -348,5 +222,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-29T03:55:51.430Z"
+  "updatedAt": "2018-07-30T02:12:13.861Z"
 }

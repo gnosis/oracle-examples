@@ -1,6 +1,8 @@
 pragma solidity ^0.4.4;
 import "../PushOracle.sol";
 import "../Oracle.sol";
+import "../../test/contracts/OracleConsumer.sol";
+
 /// @title Difficulty oracle contract - Oracle to retrieve the difficulty of the blockchain at given block
 /// @author Anton Shtylman - <anton@gnosis.pm>
 contract DifficultyOracle is Oracle, PushOracle {
@@ -48,6 +50,8 @@ contract DifficultyOracle is Oracle, PushOracle {
         external
     {
         require(isOutcomeSet(), "The outcome has not yet been resolved");
-        consumer.receiveResult(bytes32(0), abi.encode(difficulty));
+        // consumer.receiveResult(bytes32(0), abi.encode(difficulty));
+        uint balance = address(consumer).balance;
+        balance = 16;
     }
 }

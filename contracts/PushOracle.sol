@@ -3,5 +3,5 @@ import "../test/contracts/OracleConsumer.sol";
 
 /// @title Push Oracle Interface - Functions to be implemented by oracles
 interface PushOracle {
-    function pushOutcome(OracleConsumer consumer) external;
+    function pushOutcome(bytes32 id, bytes result, OracleConsumer consumer) external;
 }

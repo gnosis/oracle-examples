@@ -1,9 +1,11 @@
 {
-  "contractName": "OracleConsumer",
+  "contractName": "PullOracle",
   "abi": [
     {
-      "constant": false,
-      "inputs": [
+      "constant": true,
+      "inputs": [],
+      "name": "getOutcome",
+      "outputs": [
         {
           "name": "id",
           "type": "bytes32"
@@ -13,10 +15,8 @@
           "type": "bytes"
         }
       ],
-      "name": "receiveResult",
-      "outputs": [],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     }
   ],
@@ -24,20 +24,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.4;\n\ninterface OracleConsumer {\n    function receiveResult(bytes32 id, bytes result) external;\n}",
-  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
+  "source": "pragma solidity ^0.4.4;\n\n/// @title Pull Oracle Interface - Functions to be implemented by pull oracles\n\ninterface PullOracle {\n    function getOutcome() external constant returns (bytes32 id, bytes result);\n}",
+  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracle.sol",
   "ast": {
-    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracle.sol",
     "exportedSymbols": {
-      "OracleConsumer": [
-        276
+      "PullOracle": [
+        17
       ]
     },
-    "id": 277,
+    "id": 18,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 268,
+        "id": 9,
         "literals": [
           "solidity",
           "^",
@@ -45,42 +45,49 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:1"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "interface",
-        "documentation": null,
+        "documentation": "@title Pull Oracle Interface - Functions to be implemented by pull oracles",
         "fullyImplemented": false,
-        "id": 276,
+        "id": 17,
         "linearizedBaseContracts": [
-          276
+          17
         ],
-        "name": "OracleConsumer",
+        "name": "PullOracle",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
             "documentation": null,
-            "id": 275,
+            "id": 16,
             "implemented": false,
             "isConstructor": false,
-            "isDeclaredConst": false,
+            "isDeclaredConst": true,
             "modifiers": [],
-            "name": "receiveResult",
+            "name": "getOutcome",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 273,
+              "id": 10,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "151:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 270,
+                  "id": 12,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "79:10:5",
+                  "scope": 16,
+                  "src": "181:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -88,10 +95,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 269,
+                    "id": 11,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "79:7:5",
+                    "src": "181:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -102,22 +109,22 @@
                 },
                 {
                   "constant": false,
-                  "id": 272,
+                  "id": 14,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "91:12:5",
+                  "scope": 16,
+                  "src": "193:12:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeIdentifier": "t_bytes_memory_ptr",
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 271,
+                    "id": 13,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "91:5:5",
+                    "src": "193:5:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -127,40 +134,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "78:26:5"
+              "src": "180:26:1"
             },
-            "payable": false,
-            "returnParameters": {
-              "id": 274,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "113:0:5"
-            },
-            "scope": 276,
-            "src": "56:58:5",
-            "stateMutability": "nonpayable",
+            "scope": 17,
+            "src": "132:75:1",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 277,
-        "src": "25:91:5"
+        "scope": 18,
+        "src": "105:104:1"
       }
     ],
-    "src": "0:116:5"
+    "src": "0:209:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracle.sol",
     "exportedSymbols": {
-      "OracleConsumer": [
-        276
+      "PullOracle": [
+        17
       ]
     },
-    "id": 277,
+    "id": 18,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 268,
+        "id": 9,
         "literals": [
           "solidity",
           "^",
@@ -168,42 +168,49 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:1"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "interface",
-        "documentation": null,
+        "documentation": "@title Pull Oracle Interface - Functions to be implemented by pull oracles",
         "fullyImplemented": false,
-        "id": 276,
+        "id": 17,
         "linearizedBaseContracts": [
-          276
+          17
         ],
-        "name": "OracleConsumer",
+        "name": "PullOracle",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
             "documentation": null,
-            "id": 275,
+            "id": 16,
             "implemented": false,
             "isConstructor": false,
-            "isDeclaredConst": false,
+            "isDeclaredConst": true,
             "modifiers": [],
-            "name": "receiveResult",
+            "name": "getOutcome",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 273,
+              "id": 10,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "151:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 270,
+                  "id": 12,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "79:10:5",
+                  "scope": 16,
+                  "src": "181:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -211,10 +218,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 269,
+                    "id": 11,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "79:7:5",
+                    "src": "181:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -225,22 +232,22 @@
                 },
                 {
                   "constant": false,
-                  "id": 272,
+                  "id": 14,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "91:12:5",
+                  "scope": 16,
+                  "src": "193:12:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeIdentifier": "t_bytes_memory_ptr",
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 271,
+                    "id": 13,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "91:5:5",
+                    "src": "193:5:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -250,27 +257,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "78:26:5"
+              "src": "180:26:1"
             },
-            "payable": false,
-            "returnParameters": {
-              "id": 274,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "113:0:5"
-            },
-            "scope": 276,
-            "src": "56:58:5",
-            "stateMutability": "nonpayable",
+            "scope": 17,
+            "src": "132:75:1",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 277,
-        "src": "25:91:5"
+        "scope": 18,
+        "src": "105:104:1"
       }
     ],
-    "src": "0:116:5"
+    "src": "0:209:1"
   },
   "compiler": {
     "name": "solc",
@@ -278,5 +278,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-30T02:12:13.867Z"
+  "updatedAt": "2018-07-29T18:58:18.367Z"
 }

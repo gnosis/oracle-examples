@@ -1,0 +1,926 @@
+{
+  "contractName": "PonziSchemeFeed",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "consumer",
+          "type": "address"
+        }
+      ],
+      "name": "pushOutcome",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOutcomeSet",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_funds",
+          "type": "uint256"
+        }
+      ],
+      "name": "getData",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.4;\nimport \"../Oracle.sol\";\nimport \"../PushOracle.sol\";\nimport \"../../test/contracts/OracleConsumer.sol\";\n\ncontract PonziSchemeFeed is Oracle, PushOracle {\n    struct ponziDataFeedStruct {\n        uint timestamp;\n        uint funds;\n    }\n    ponziDataFeedStruct[] datafeed;\n    \n    constructor() {\n\n    }\n\n    function getData(uint _funds) public {\n        datafeed.push(ponziDataFeedStruct({\n            timestamp: now,\n            funds: _funds\n        }));\n    }\n}",
+  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracles/PonziFundsFeed.sol",
+  "ast": {
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracles/PonziFundsFeed.sol",
+    "exportedSymbols": {
+      "PonziSchemeFeed": [
+        266
+      ]
+    },
+    "id": 267,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 231,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:4"
+      },
+      {
+        "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/Oracle.sol",
+        "file": "../Oracle.sol",
+        "id": 232,
+        "nodeType": "ImportDirective",
+        "scope": 267,
+        "sourceUnit": 8,
+        "src": "24:23:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracle.sol",
+        "file": "../PushOracle.sol",
+        "id": 233,
+        "nodeType": "ImportDirective",
+        "scope": 267,
+        "sourceUnit": 17,
+        "src": "48:27:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
+        "file": "../../test/contracts/OracleConsumer.sol",
+        "id": 234,
+        "nodeType": "ImportDirective",
+        "scope": 267,
+        "sourceUnit": 277,
+        "src": "76:49:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 235,
+              "name": "Oracle",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7,
+              "src": "155:6:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Oracle_$7",
+                "typeString": "contract Oracle"
+              }
+            },
+            "id": 236,
+            "nodeType": "InheritanceSpecifier",
+            "src": "155:6:4"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 237,
+              "name": "PushOracle",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16,
+              "src": "163:10:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_PushOracle_$16",
+                "typeString": "contract PushOracle"
+              }
+            },
+            "id": 238,
+            "nodeType": "InheritanceSpecifier",
+            "src": "163:10:4"
+          }
+        ],
+        "contractDependencies": [
+          7,
+          16
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 266,
+        "linearizedBaseContracts": [
+          266,
+          16,
+          7
+        ],
+        "name": "PonziSchemeFeed",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "PonziSchemeFeed.ponziDataFeedStruct",
+            "id": 243,
+            "members": [
+              {
+                "constant": false,
+                "id": 240,
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 243,
+                "src": "217:14:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 239,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "217:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 242,
+                "name": "funds",
+                "nodeType": "VariableDeclaration",
+                "scope": 243,
+                "src": "241:10:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 241,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "241:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ponziDataFeedStruct",
+            "nodeType": "StructDefinition",
+            "scope": 266,
+            "src": "180:78:4",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 246,
+            "name": "datafeed",
+            "nodeType": "VariableDeclaration",
+            "scope": 266,
+            "src": "263:30:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_ponziDataFeedStruct_$243_storage_$dyn_storage",
+              "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 244,
+                "name": "ponziDataFeedStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 243,
+                "src": "263:19:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_ponziDataFeedStruct_$243_storage_ptr",
+                  "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct"
+                }
+              },
+              "id": 245,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "263:21:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_ponziDataFeedStruct_$243_storage_$dyn_storage_ptr",
+                "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 249,
+              "nodeType": "Block",
+              "src": "318:8:4",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 250,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 247,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "315:2:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "318:0:4"
+            },
+            "scope": 266,
+            "src": "304:22:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 264,
+              "nodeType": "Block",
+              "src": "369:118:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 259,
+                            "name": "now",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 293,
+                            "src": "438:3:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 260,
+                            "name": "_funds",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 252,
+                            "src": "462:6:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 258,
+                          "name": "ponziDataFeedStruct",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 243,
+                          "src": "393:19:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_ponziDataFeedStruct_$243_storage_ptr_$",
+                            "typeString": "type(struct PonziSchemeFeed.ponziDataFeedStruct storage pointer)"
+                          }
+                        },
+                        "id": 261,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "timestamp",
+                          "funds"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "393:86:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ponziDataFeedStruct_$243_memory",
+                          "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_ponziDataFeedStruct_$243_memory",
+                          "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 255,
+                        "name": "datafeed",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 246,
+                        "src": "379:8:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_ponziDataFeedStruct_$243_storage_$dyn_storage",
+                          "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 257,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "379:13:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_ponziDataFeedStruct_$243_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct PonziSchemeFeed.ponziDataFeedStruct storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 262,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "379:101:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 263,
+                  "nodeType": "ExpressionStatement",
+                  "src": "379:101:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 265,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "getData",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 253,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 252,
+                  "name": "_funds",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 265,
+                  "src": "349:11:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 251,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "349:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "348:13:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 254,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "369:0:4"
+            },
+            "scope": 266,
+            "src": "332:155:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 267,
+        "src": "127:362:4"
+      }
+    ],
+    "src": "0:489:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracles/PonziFundsFeed.sol",
+    "exportedSymbols": {
+      "PonziSchemeFeed": [
+        266
+      ]
+    },
+    "id": 267,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 231,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:4"
+      },
+      {
+        "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/Oracle.sol",
+        "file": "../Oracle.sol",
+        "id": 232,
+        "nodeType": "ImportDirective",
+        "scope": 267,
+        "sourceUnit": 8,
+        "src": "24:23:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracle.sol",
+        "file": "../PushOracle.sol",
+        "id": 233,
+        "nodeType": "ImportDirective",
+        "scope": 267,
+        "sourceUnit": 17,
+        "src": "48:27:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
+        "file": "../../test/contracts/OracleConsumer.sol",
+        "id": 234,
+        "nodeType": "ImportDirective",
+        "scope": 267,
+        "sourceUnit": 277,
+        "src": "76:49:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 235,
+              "name": "Oracle",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7,
+              "src": "155:6:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Oracle_$7",
+                "typeString": "contract Oracle"
+              }
+            },
+            "id": 236,
+            "nodeType": "InheritanceSpecifier",
+            "src": "155:6:4"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 237,
+              "name": "PushOracle",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16,
+              "src": "163:10:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_PushOracle_$16",
+                "typeString": "contract PushOracle"
+              }
+            },
+            "id": 238,
+            "nodeType": "InheritanceSpecifier",
+            "src": "163:10:4"
+          }
+        ],
+        "contractDependencies": [
+          7,
+          16
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 266,
+        "linearizedBaseContracts": [
+          266,
+          16,
+          7
+        ],
+        "name": "PonziSchemeFeed",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "PonziSchemeFeed.ponziDataFeedStruct",
+            "id": 243,
+            "members": [
+              {
+                "constant": false,
+                "id": 240,
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 243,
+                "src": "217:14:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 239,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "217:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 242,
+                "name": "funds",
+                "nodeType": "VariableDeclaration",
+                "scope": 243,
+                "src": "241:10:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 241,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "241:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ponziDataFeedStruct",
+            "nodeType": "StructDefinition",
+            "scope": 266,
+            "src": "180:78:4",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 246,
+            "name": "datafeed",
+            "nodeType": "VariableDeclaration",
+            "scope": 266,
+            "src": "263:30:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_ponziDataFeedStruct_$243_storage_$dyn_storage",
+              "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 244,
+                "name": "ponziDataFeedStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 243,
+                "src": "263:19:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_ponziDataFeedStruct_$243_storage_ptr",
+                  "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct"
+                }
+              },
+              "id": 245,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "263:21:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_ponziDataFeedStruct_$243_storage_$dyn_storage_ptr",
+                "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 249,
+              "nodeType": "Block",
+              "src": "318:8:4",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 250,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 247,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "315:2:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 248,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "318:0:4"
+            },
+            "scope": 266,
+            "src": "304:22:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 264,
+              "nodeType": "Block",
+              "src": "369:118:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 259,
+                            "name": "now",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 293,
+                            "src": "438:3:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 260,
+                            "name": "_funds",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 252,
+                            "src": "462:6:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 258,
+                          "name": "ponziDataFeedStruct",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 243,
+                          "src": "393:19:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_ponziDataFeedStruct_$243_storage_ptr_$",
+                            "typeString": "type(struct PonziSchemeFeed.ponziDataFeedStruct storage pointer)"
+                          }
+                        },
+                        "id": 261,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "timestamp",
+                          "funds"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "393:86:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ponziDataFeedStruct_$243_memory",
+                          "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_ponziDataFeedStruct_$243_memory",
+                          "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 255,
+                        "name": "datafeed",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 246,
+                        "src": "379:8:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_ponziDataFeedStruct_$243_storage_$dyn_storage",
+                          "typeString": "struct PonziSchemeFeed.ponziDataFeedStruct storage ref[] storage ref"
+                        }
+                      },
+                      "id": 257,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "379:13:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_ponziDataFeedStruct_$243_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct PonziSchemeFeed.ponziDataFeedStruct storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 262,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "379:101:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 263,
+                  "nodeType": "ExpressionStatement",
+                  "src": "379:101:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 265,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "getData",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 253,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 252,
+                  "name": "_funds",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 265,
+                  "src": "349:11:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 251,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "349:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "348:13:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 254,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "369:0:4"
+            },
+            "scope": 266,
+            "src": "332:155:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 267,
+        "src": "127:362:4"
+      }
+    ],
+    "src": "0:489:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-30T02:12:13.856Z"
+}

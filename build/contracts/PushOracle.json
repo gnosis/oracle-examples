@@ -2,20 +2,6 @@
   "contractName": "PushOracle",
   "abi": [
     {
-      "constant": true,
-      "inputs": [],
-      "name": "isOutcomeSet",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "constant": false,
       "inputs": [
         {
@@ -34,20 +20,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.4;\nimport \"../../test/contracts/OracleConsumer.sol\";\n\n/// @title Push Oracle Interface - Functions to be implemented by oracles\ninterface PushOracle {\n    function isOutcomeSet() external view returns (bool);\n    function pushOutcome(OracleConsumer consumer) external;\n}\n",
-  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracles/PushOracle.sol",
+  "source": "pragma solidity ^0.4.4;\nimport \"../test/contracts/OracleConsumer.sol\";\n\n/// @title Push Oracle Interface - Functions to be implemented by oracles\ninterface PushOracle {\n    function pushOutcome(OracleConsumer consumer) external;\n}\n",
+  "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracle.sol",
   "ast": {
-    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracles/PushOracle.sol",
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracle.sol",
     "exportedSymbols": {
       "PushOracle": [
-        173
+        16
       ]
     },
-    "id": 174,
+    "id": 17,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 161,
+        "id": 9,
         "literals": [
           "solidity",
           "^",
@@ -55,16 +41,16 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:4"
+        "src": "0:23:1"
       },
       {
         "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
-        "file": "../../test/contracts/OracleConsumer.sol",
-        "id": 162,
+        "file": "../test/contracts/OracleConsumer.sol",
+        "id": 10,
         "nodeType": "ImportDirective",
-        "scope": 174,
-        "sourceUnit": 184,
-        "src": "24:49:4",
+        "scope": 17,
+        "sourceUnit": 277,
+        "src": "24:46:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -74,9 +60,9 @@
         "contractKind": "interface",
         "documentation": "@title Push Oracle Interface - Functions to be implemented by oracles",
         "fullyImplemented": false,
-        "id": 173,
+        "id": 16,
         "linearizedBaseContracts": [
-          173
+          16
         ],
         "name": "PushOracle",
         "nodeType": "ContractDefinition",
@@ -84,63 +70,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 167,
-            "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": true,
-            "modifiers": [],
-            "name": "isOutcomeSet",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 163,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "197:2:4"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 166,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 165,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 167,
-                  "src": "223:4:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  },
-                  "typeName": {
-                    "id": 164,
-                    "name": "bool",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "223:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "222:6:4"
-            },
-            "scope": 173,
-            "src": "176:53:4",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "external"
-          },
-          {
-            "body": null,
-            "documentation": null,
-            "id": 172,
+            "id": 15,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -148,31 +78,31 @@
             "name": "pushOutcome",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 170,
+              "id": 13,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 169,
+                  "id": 12,
                   "name": "consumer",
                   "nodeType": "VariableDeclaration",
-                  "scope": 172,
-                  "src": "255:23:4",
+                  "scope": 15,
+                  "src": "194:23:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_OracleConsumer_$183",
+                    "typeIdentifier": "t_contract$_OracleConsumer_$276",
                     "typeString": "contract OracleConsumer"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 168,
+                    "id": 11,
                     "name": "OracleConsumer",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 183,
-                    "src": "255:14:4",
+                    "referencedDeclaration": 276,
+                    "src": "194:14:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_OracleConsumer_$183",
+                      "typeIdentifier": "t_contract$_OracleConsumer_$276",
                       "typeString": "contract OracleConsumer"
                     }
                   },
@@ -180,40 +110,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "254:25:4"
+              "src": "193:25:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 171,
+              "id": 14,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "288:0:4"
+              "src": "227:0:1"
             },
-            "scope": 173,
-            "src": "234:55:4",
+            "scope": 16,
+            "src": "173:55:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 174,
-        "src": "149:142:4"
+        "scope": 17,
+        "src": "146:84:1"
       }
     ],
-    "src": "0:292:4"
+    "src": "0:231:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracles/PushOracle.sol",
+    "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PushOracle.sol",
     "exportedSymbols": {
       "PushOracle": [
-        173
+        16
       ]
     },
-    "id": 174,
+    "id": 17,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 161,
+        "id": 9,
         "literals": [
           "solidity",
           "^",
@@ -221,16 +151,16 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:4"
+        "src": "0:23:1"
       },
       {
         "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
-        "file": "../../test/contracts/OracleConsumer.sol",
-        "id": 162,
+        "file": "../test/contracts/OracleConsumer.sol",
+        "id": 10,
         "nodeType": "ImportDirective",
-        "scope": 174,
-        "sourceUnit": 184,
-        "src": "24:49:4",
+        "scope": 17,
+        "sourceUnit": 277,
+        "src": "24:46:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -240,9 +170,9 @@
         "contractKind": "interface",
         "documentation": "@title Push Oracle Interface - Functions to be implemented by oracles",
         "fullyImplemented": false,
-        "id": 173,
+        "id": 16,
         "linearizedBaseContracts": [
-          173
+          16
         ],
         "name": "PushOracle",
         "nodeType": "ContractDefinition",
@@ -250,63 +180,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 167,
-            "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": true,
-            "modifiers": [],
-            "name": "isOutcomeSet",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 163,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "197:2:4"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 166,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 165,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 167,
-                  "src": "223:4:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  },
-                  "typeName": {
-                    "id": 164,
-                    "name": "bool",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "223:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "222:6:4"
-            },
-            "scope": 173,
-            "src": "176:53:4",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "external"
-          },
-          {
-            "body": null,
-            "documentation": null,
-            "id": 172,
+            "id": 15,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -314,31 +188,31 @@
             "name": "pushOutcome",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 170,
+              "id": 13,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 169,
+                  "id": 12,
                   "name": "consumer",
                   "nodeType": "VariableDeclaration",
-                  "scope": 172,
-                  "src": "255:23:4",
+                  "scope": 15,
+                  "src": "194:23:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_OracleConsumer_$183",
+                    "typeIdentifier": "t_contract$_OracleConsumer_$276",
                     "typeString": "contract OracleConsumer"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 168,
+                    "id": 11,
                     "name": "OracleConsumer",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 183,
-                    "src": "255:14:4",
+                    "referencedDeclaration": 276,
+                    "src": "194:14:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_OracleConsumer_$183",
+                      "typeIdentifier": "t_contract$_OracleConsumer_$276",
                       "typeString": "contract OracleConsumer"
                     }
                   },
@@ -346,27 +220,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "254:25:4"
+              "src": "193:25:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 171,
+              "id": 14,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "288:0:4"
+              "src": "227:0:1"
             },
-            "scope": 173,
-            "src": "234:55:4",
+            "scope": 16,
+            "src": "173:55:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 174,
-        "src": "149:142:4"
+        "scope": 17,
+        "src": "146:84:1"
       }
     ],
-    "src": "0:292:4"
+    "src": "0:231:1"
   },
   "compiler": {
     "name": "solc",
@@ -374,5 +248,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-29T03:55:51.431Z"
+  "updatedAt": "2018-07-30T02:12:13.861Z"
 }
