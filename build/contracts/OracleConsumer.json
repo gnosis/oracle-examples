@@ -30,14 +30,14 @@
     "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
     "exportedSymbols": {
       "OracleConsumer": [
-        276
+        99
       ]
     },
-    "id": 277,
+    "id": 100,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 268,
+        "id": 91,
         "literals": [
           "solidity",
           "^",
@@ -45,7 +45,7 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:3"
       },
       {
         "baseContracts": [],
@@ -53,9 +53,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 276,
+        "id": 99,
         "linearizedBaseContracts": [
-          276
+          99
         ],
         "name": "OracleConsumer",
         "nodeType": "ContractDefinition",
@@ -63,7 +63,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 275,
+            "id": 98,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -71,16 +71,16 @@
             "name": "receiveResult",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 273,
+              "id": 96,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 270,
+                  "id": 93,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "79:10:5",
+                  "scope": 98,
+                  "src": "79:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -88,10 +88,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 269,
+                    "id": 92,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "79:7:5",
+                    "src": "79:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -102,11 +102,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 272,
+                  "id": 95,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "91:12:5",
+                  "scope": 98,
+                  "src": "91:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -114,10 +114,10 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 271,
+                    "id": 94,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "91:5:5",
+                    "src": "91:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -127,40 +127,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "78:26:5"
+              "src": "78:26:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 274,
+              "id": 97,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "113:0:5"
+              "src": "113:0:3"
             },
-            "scope": 276,
-            "src": "56:58:5",
+            "scope": 99,
+            "src": "56:58:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 277,
-        "src": "25:91:5"
+        "scope": 100,
+        "src": "25:91:3"
       }
     ],
-    "src": "0:116:5"
+    "src": "0:116:3"
   },
   "legacyAST": {
     "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/test/contracts/OracleConsumer.sol",
     "exportedSymbols": {
       "OracleConsumer": [
-        276
+        99
       ]
     },
-    "id": 277,
+    "id": 100,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 268,
+        "id": 91,
         "literals": [
           "solidity",
           "^",
@@ -168,7 +168,7 @@
           ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:3"
       },
       {
         "baseContracts": [],
@@ -176,9 +176,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 276,
+        "id": 99,
         "linearizedBaseContracts": [
-          276
+          99
         ],
         "name": "OracleConsumer",
         "nodeType": "ContractDefinition",
@@ -186,7 +186,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 275,
+            "id": 98,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -194,16 +194,16 @@
             "name": "receiveResult",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 273,
+              "id": 96,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 270,
+                  "id": 93,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "79:10:5",
+                  "scope": 98,
+                  "src": "79:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -211,10 +211,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 269,
+                    "id": 92,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "79:7:5",
+                    "src": "79:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -225,11 +225,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 272,
+                  "id": 95,
                   "name": "result",
                   "nodeType": "VariableDeclaration",
-                  "scope": 275,
-                  "src": "91:12:5",
+                  "scope": 98,
+                  "src": "91:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -237,10 +237,10 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 271,
+                    "id": 94,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "91:5:5",
+                    "src": "91:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -250,27 +250,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "78:26:5"
+              "src": "78:26:3"
             },
             "payable": false,
             "returnParameters": {
-              "id": 274,
+              "id": 97,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "113:0:5"
+              "src": "113:0:3"
             },
-            "scope": 276,
-            "src": "56:58:5",
+            "scope": 99,
+            "src": "56:58:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 277,
-        "src": "25:91:5"
+        "scope": 100,
+        "src": "25:91:3"
       }
     ],
-    "src": "0:116:5"
+    "src": "0:116:3"
   },
   "compiler": {
     "name": "solc",
@@ -278,5 +278,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-30T02:12:13.867Z"
+  "updatedAt": "2018-07-30T04:21:01.658Z"
 }

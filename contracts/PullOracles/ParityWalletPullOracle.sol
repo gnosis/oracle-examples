@@ -1,10 +1,10 @@
 pragma solidity ^0.4.4;
 import "../Oracle.sol";
-import "../PushOracle.sol";
+import "../PullOracle.sol";
 import "../../test/contracts/OracleConsumer.sol";
 
 
-contract ParityWalletOracle is Oracle {
+contract ParityWalletPullOracle is Oracle, PullOracle {
 
     event ActivityFound(bool);
     // upon construction, log a certain set of balances, upon check test if they have changed
@@ -22,7 +22,7 @@ contract ParityWalletOracle is Oracle {
         return true; 
     }
 
-    function getOutcome() public {
+    function getOutcome() public view returns (bytes32, bytes) {
         for (uint i=0; i<parityAccounts.length; i++) {
             if (parityAccounts[i].balance <= parityBalances[parityAccounts[i]]) {
                 activityFound = true;
@@ -30,9 +30,6 @@ contract ParityWalletOracle is Oracle {
         } 
         emit ActivityFound(true);
         // Should this function allow the user to automatically push the results to a consumer if the outcome is set?
+        return (bytes32(0), abi.encode(activityFound));
     }
-
-    function pushOutcome(OracleConsumer consumer) public {
-        consumer.receiveResult(bytes32(0), abi.encode(activityFound));
-    }    
 }

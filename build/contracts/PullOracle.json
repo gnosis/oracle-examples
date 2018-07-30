@@ -7,11 +7,11 @@
       "name": "getOutcome",
       "outputs": [
         {
-          "name": "id",
+          "name": "",
           "type": "bytes32"
         },
         {
-          "name": "result",
+          "name": "",
           "type": "bytes"
         }
       ],
@@ -24,7 +24,7 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.4;\n\n/// @title Pull Oracle Interface - Functions to be implemented by pull oracles\n\ninterface PullOracle {\n    function getOutcome() external constant returns (bytes32 id, bytes result);\n}",
+  "source": "pragma solidity ^0.4.4;\n\n/// @title Pull Oracle Interface - Functions to be implemented by pull oracles\n\ninterface PullOracle {\n    function getOutcome() external view returns (bytes32, bytes);\n}",
   "sourcePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracle.sol",
   "ast": {
     "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracle.sol",
@@ -84,10 +84,10 @@
                 {
                   "constant": false,
                   "id": 12,
-                  "name": "id",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 16,
-                  "src": "181:10:1",
+                  "src": "177:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -98,7 +98,7 @@
                     "id": 11,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "181:7:1",
+                    "src": "177:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -110,10 +110,10 @@
                 {
                   "constant": false,
                   "id": 14,
-                  "name": "result",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 16,
-                  "src": "193:12:1",
+                  "src": "186:5:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -124,7 +124,7 @@
                     "id": 13,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "193:5:1",
+                    "src": "186:5:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -134,20 +134,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "180:26:1"
+              "src": "176:16:1"
             },
             "scope": 17,
-            "src": "132:75:1",
+            "src": "132:61:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
         "scope": 18,
-        "src": "105:104:1"
+        "src": "105:90:1"
       }
     ],
-    "src": "0:209:1"
+    "src": "0:195:1"
   },
   "legacyAST": {
     "absolutePath": "/Users/antonvs/Projects/gnosis/oracle-examples/contracts/PullOracle.sol",
@@ -207,10 +207,10 @@
                 {
                   "constant": false,
                   "id": 12,
-                  "name": "id",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 16,
-                  "src": "181:10:1",
+                  "src": "177:7:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -221,7 +221,7 @@
                     "id": 11,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "181:7:1",
+                    "src": "177:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -233,10 +233,10 @@
                 {
                   "constant": false,
                   "id": 14,
-                  "name": "result",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 16,
-                  "src": "193:12:1",
+                  "src": "186:5:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -247,7 +247,7 @@
                     "id": 13,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "193:5:1",
+                    "src": "186:5:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -257,20 +257,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "180:26:1"
+              "src": "176:16:1"
             },
             "scope": 17,
-            "src": "132:75:1",
+            "src": "132:61:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
         "scope": 18,
-        "src": "105:104:1"
+        "src": "105:90:1"
       }
     ],
-    "src": "0:209:1"
+    "src": "0:195:1"
   },
   "compiler": {
     "name": "solc",
@@ -278,5 +278,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-29T18:58:18.367Z"
+  "updatedAt": "2018-07-30T04:21:01.658Z"
 }

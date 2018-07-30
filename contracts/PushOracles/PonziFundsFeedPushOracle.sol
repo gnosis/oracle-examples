@@ -2,7 +2,9 @@ pragma solidity ^0.4.4;
 import "../Oracle.sol";
 import "../../test/contracts/OracleConsumer.sol";
 
-contract PonziSchemeFeed is Oracle {
+contract PonziFundsFeedPushOracle is Oracle {
+    event DataLogged(uint indexed timestamp);
+
     struct ponziDataFeedStruct {
         uint timestamp;
         uint funds;
@@ -19,6 +21,8 @@ contract PonziSchemeFeed is Oracle {
             timestamp: now,
             funds: ponziContractAddress.balance
         }));
+
+        emit DataLogged(now);
     }
 
     function isOutcomeSet() public view returns (bool) {
