@@ -3,32 +3,32 @@
     "1532840408391": {
       "events": {},
       "links": {},
-      "address": "0xdfccc9c59c7361307d47c558ffa75840b32dba29",
-      "transactionHash": "0xda855668736569d13693ea15163fa4192245b0bdd06f99b073f91585a363ec35"
+      "address": "0xc5afe31ae505594b190ac71ea689b58139d1c354",
+      "transactionHash": "0xc7e1814bc6b2d49b996e875c1d85e5ac10981d084ec9b556a724e818308806c5"
     }
   },
   "ParityWalletPullOracle": {
     "1532840408391": {
       "events": {},
       "links": {},
-      "address": "0xf16165f1046f1b3cdb37da25e835b986e696313a",
-      "transactionHash": "0x3acc38e861dd08549a51c9b73c55482c05f55a02d6ea7cbbed2b8e25116d3d77"
+      "address": "0x9ce4cd6d7f5e8b14c7a3e8e6a257a86bd5a6eea0",
+      "transactionHash": "0xbc50398de0443cf7dd80a5b9d79bb43cc44b555dfbaabf095571c1b017bcd41f"
     }
   },
   "ParityWalletPushOracle": {
     "1532840408391": {
       "events": {},
       "links": {},
-      "address": "0xe97dbd7116d168190f8a6e7beb1092c103c53a12",
-      "transactionHash": "0x20fd04d8a10f2b2cafd130e770863d6b00869524c0252a6ff53c7623364dc19a"
+      "address": "0x25d02115bd67258a406a0f676147e6c3598a91a9",
+      "transactionHash": "0x25456bea7c8492bc5576e1ae936266bb850f2ac9f28566e8d712f39594b151a5"
     }
   },
   "PonziFundsFeedPushOracle": {
     "1532840408391": {
       "events": {},
       "links": {},
-      "address": "0xd13ebb5c39fb00c06122827e1cbd389930c9e0e3",
-      "transactionHash": "0xcddd237a2027ab761951f1a1aeaa94730a7498f6f314c22bd0b68cb03023f058"
+      "address": "0xb592244aa6477ebddc14475aaef921cddcc0170f",
+      "transactionHash": "0x36de3b7e65d56d81be4407be01ebfb36c351558e302ffc6ef6f1a62b23a84d68"
     }
   }
 }

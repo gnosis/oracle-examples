@@ -6,7 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "openzeppelin-solidity": "1.11.0"
+  },
   "devDependencies": {
     "@gnosis.pm/truffle-nice-tools": "^1.1.1"
   },
