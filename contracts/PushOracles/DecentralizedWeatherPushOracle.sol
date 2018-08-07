@@ -1,40 +1,40 @@
 pragma solidity ^0.4.4; 
 import "../Interfaces/OracleConsumer.sol";
+// import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract DecentralizedOracleFeed {
+contract DecentralizedWeatherPushOracle {
+  // constructed with a valid number of participants; (defined in the constructor)
   uint128 totalReports;
   uint128 requiredReports;
   mapping (address => bool) reporters;
-  mapping (uint => int8[]) degreesCelsius;
+  int8[] degreesCelsius;
 
   /// @param _requiredReports The number of required reports from various accounts before the Oracle considers the data finalized
   constructor(uint128 _requiredReports) public {
     requiredReports = _requiredReports;
-  }
-   
+  } 
+  
   function inputData(int8 _degreesCelsius) public {
     require(totalReports < requiredReports, "All the necessary reports have already been reported.");
     require(!reporters[msg.sender], "This address has already submitted a report.");
       reporters[msg.sender] = true;
       totalReports++;
-      degreesCelsius[now].push(_degreesCelsius);
+      degreesCelsius.push(_degreesCelsius);
   }
 
-  /// @param _date The date for the weather report in Unix timestamp.
-  function getAverageTemp(uint _date) public view returns (int) {
+  function getAverageTemp() public view returns (int) {
     int totalAddedDegrees;
-    for (uint i=0; i<degreesCelsius[_date].length - 1; i++) {
-      totalAddedDegrees += degreesCelsius[_date][i];
+    for (uint i=0; i<degreesCelsius.length - 1; i++) {
+      totalAddedDegrees += degreesCelsius[i];
     }
-    return totalAddedDegrees / int(degreesCelsius[_date].length);
+    return totalAddedDegrees / int(degreesCelsius.length);
   }
 
-  /// @param _date The date for the weather report in Unix timestamp.
   /// @param _oracleConsumer The contract to which this Oracle is going to push data.
-  function pushWeather(OracleConsumer _oracleConsumer, uint _date) public {
+  function pushWeather(OracleConsumer _oracleConsumer) public {
     require(totalReports >= requiredReports);
-    _oracleConsumer.receiveResult(bytes32(0), bytes32(getAverageTemp(_date)));
-  } 
+    _oracleConsumer.receiveResult(bytes32(0), bytes32(getAverageTemp()));
+  }
 
   function() public {
     revert("Please don't send Ether to this contract.");

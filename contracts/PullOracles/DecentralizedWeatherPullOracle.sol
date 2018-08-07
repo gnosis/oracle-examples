@@ -1,9 +1,9 @@
 pragma solidity ^0.4.4; 
 import "../Interfaces/OracleConsumer.sol";
-// import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "../Interfaces/PullOracle.sol";
 
-contract DecentralizedOracle {
-  // constructed with a valid number of participants; (defined in the constructor)
+contract DecentralizedWeatherPullOracle is PullOracle {
+
   uint128 totalReports;
   uint128 requiredReports;
   mapping (address => bool) reporters;
@@ -30,9 +30,9 @@ contract DecentralizedOracle {
     return totalAddedDegrees / int(degreesCelsius.length);
   }
 
-  function pushWeather(OracleConsumer _oracleConsumer) public {
-    require(totalReports >= requiredReports);
-    _oracleConsumer.receiveResult(bytes32(0), bytes32(getAverageTemp()));
+  function resultsFor(bytes32 id) view public returns (bytes32 result) {
+    require(totalReports >= requiredReports, "Not enough people have reported yet");
+    return bytes32(getAverageTemp());
   }
 
   function() public {

@@ -1,7 +1,7 @@
 pragma solidity ^0.4.4; 
 import "../Interfaces/OracleConsumer.sol";
 
-contract DecentralizedPushOracleFeed {
+contract DecentralizedWeatherPushOracleFeed {
   uint128 totalReports;
   uint128 requiredReports;
   mapping (address => bool) reporters;
