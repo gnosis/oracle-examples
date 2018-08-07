@@ -1,19 +1,16 @@
 pragma solidity ^0.4.4;
-import "../../../contracts/Interfaces/OracleConsumer.sol";
+import "../../../contracts/Interfaces/PullOracle.sol";
 
-contract DecentralizedPullOracleFeedConsumer is OracleConsumer {
-  address public oracle;
+contract DecentralizedPullOracleFeedConsumer {
+  PullOracle public oracle;
   int8 public resolution;
 
-  constructor(address _oracle) public {
+  constructor(PullOracle _oracle) public {
     oracle = _oracle;
   }
 
-  function receiveResult(bytes32 id, bytes32 result) {
-    if (msg.sender != oracle) {
-      revert("The message sender is not an authorized oracle.");
-    }
-
+  function getResult(bytes32 id) public {
+    bytes32 result = oracle.resultFor(id);
     resolution = int8(result);
   }
 }

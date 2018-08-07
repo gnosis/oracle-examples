@@ -2,12 +2,9 @@ const testGas = require("@gnosis.pm/truffle-nice-tools").testGas;
 const ethUtils = require('ethereumjs-util');
 
 const CentralizedWeatherPullOracle = artifacts.require("CentralizedWeatherPullOracle");
-const DecentralizedWeatherPullOracleFeed = artifacts.require("DecentralizedWeatherPullOracleFeed");
-
 const CentralizedPullOracleConsumer = artifacts.require("CentralizedPullOracleConsumer");
-const DecentralizedPullOracleFeedConsumer = artifacts.require("DecentralizedPullOracleFeedConsumer");
 
-contracts = [CentralizedPullOracleConsumer, DecentralizedPullOracleFeedConsumer, CentralizedWeatherPullOracle, DecentralizedWeatherPullOracleFeed];
+contracts = [CentralizedPullOracleConsumer, CentralizedWeatherPullOracle];
 
 contract("CentralizedPullOracleConsumer", (accounts) => {
   let _CentralizedWeatherPullOracle;
@@ -17,14 +14,29 @@ contract("CentralizedPullOracleConsumer", (accounts) => {
     _CentralizedPullOracleConsumer = await CentralizedPullOracleConsumer.new(_CentralizedWeatherPullOracle.address);
   });
 
+  before(testGas.createGasStatCollectorBeforeHook(contracts));
+  after(testGas.createGasStatCollectorAfterHook(contracts));
+
   it("Should have the oracle defined", async () => {
     let oracle = await _CentralizedPullOracleConsumer.oracle();
     assert.equal(oracle, _CentralizedWeatherPullOracle.address);
   });
+
+  it("Should revert if the oracle.resultFor() function is called before the results are set", async () => {
+    try {
+      await _CentralizedPullOracleConsumer.getResult(ethUtils.bufferToHex(ethUtils.setLengthLeft(0, 32)));
+    } catch (err) {
+      assert(true);
+    }
+  });
   
-  it("Should be able to call the resultFor function on the oracle and set the result")
-  // contract("")
-  
+  it("Should be able to call the resultFor function on the oracle and set the result", async () => {
+    await _CentralizedWeatherPullOracle.inputData(9);
+    await _CentralizedPullOracleConsumer.getResult(ethUtils.bufferToHex(ethUtils.setLengthLeft(0, 32)));
+    let resolution = await _CentralizedPullOracleConsumer.resolution();
+    resolution = resolution.toString(10);
+    assert.equal(resolution, 9);    
+  })
 });
 
 contract("CentralizedWeatherPullOracle", (accounts) => {
@@ -33,6 +45,9 @@ contract("CentralizedWeatherPullOracle", (accounts) => {
   before(async () => {
     _CentralizedWeatherPullOracle = await CentralizedWeatherPullOracle.deployed();
   });
+
+  before(testGas.createGasStatCollectorBeforeHook(contracts));
+  after(testGas.createGasStatCollectorAfterHook(contracts));
 
   it("Should initiate with the initial values for degreesCelsius and resultSet unset.", async () => {
     let degreesCelsius = await _CentralizedWeatherPullOracle.degreesCelsius();

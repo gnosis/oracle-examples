@@ -35,7 +35,7 @@ contract DecentralizedWeatherPullOracleFeed is PullOracle, DateTime {
 
   function resultFor(bytes32 id) view public returns (bytes32 result) {
     require(totalReports >= requiredReports, "All the necessary reports have not been reported.");
-    require(resultsSet[parseTimestamp(uint(id)).day], "The weather for that date has not been set yet!");
+    // require(resultsSet[parseTimestamp(uint(id)).day], "The weather for that date has not been set yet!");
     int finalResults = getAverageTemp(uint16(id));
     return bytes32(finalResults);
     
