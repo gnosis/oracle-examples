@@ -3,11 +3,11 @@ import "../Interfaces/PullOracle.sol";
 import "../lib/time/DateTime.sol";
 
 contract DecentralizedWeatherPullOracleFeed is PullOracle, DateTime {
-  uint128 totalReports;
-  uint128 requiredReports;
-  mapping (address => bool) reporters;
-  mapping (uint16 => int8[]) weatherConditions;
-  mapping (uint16 => bool) resultsSet;
+  uint128 public totalReports;
+  uint128 public requiredReports;
+  mapping (address => bool) public reporters;
+  mapping (uint16 => int8[]) public weatherConditions;
+  mapping (uint16 => bool) public resultsSet;
 
   /// @param _requiredReports The number of required reports from various accounts before the Oracle considers the data finalized
   constructor(uint128 _requiredReports) public {

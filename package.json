@@ -10,7 +10,8 @@
     "openzeppelin-solidity": "1.11.0"
   },
   "devDependencies": {
-    "@gnosis.pm/truffle-nice-tools": "^1.1.1"
+    "@gnosis.pm/truffle-nice-tools": "^1.1.1",
+    "ethereumjs-util": "^5.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

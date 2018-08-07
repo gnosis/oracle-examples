@@ -9,10 +9,10 @@ const DecentralizedWeatherPushOracle = artifacts.require('./DecentralizedWeather
 const DecentralizedWeatherPushOracleFeed = artifacts.require('./DecentralizedWeatherPushOracleFeed.sol');
 
 module.exports = function(deployer, network, accounts) {
-  if (network == "test") {
+  if (network == "test" || network == "ganache") {
     deployer.deploy(CentralizedWeatherPullOracle);
     deployer.deploy(CentralizedWeatherPullFeedOracle);
-    deployer.deploy(DecentralizedWeatherPullOracle, 50);
+    // deployer.deploy(DecentralizedWeatherPullOracle, 50);
     deployer.deploy(DecentralizedWeatherPullOracleFeed, 50);
     deployer.deploy(CentralizedWeatherPushOracle);
     deployer.deploy(CentralizedWeatherPushFeedOracle);

@@ -9,11 +9,10 @@ contract CentralizedPushOracleConsumer is OracleConsumer {
     oracle = _oracle;
   }
 
-  function receiveResult(bytes32 /*id*/, bytes32 result) external {
+  function receiveResult(bytes32 id, bytes32 result) external {
     if (msg.sender != oracle) {
       revert("The message sender is not an authorized oracle.");
     }
-
     resolution = int8(result);
   }
 }

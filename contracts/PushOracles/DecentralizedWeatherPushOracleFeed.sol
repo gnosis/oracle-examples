@@ -3,10 +3,10 @@ import "../Interfaces/OracleConsumer.sol";
 import "../lib/time/DateTime.sol";
 
 contract DecentralizedWeatherPushOracleFeed is DateTime {
-  uint128 totalReports;
-  uint128 requiredReports;
-  mapping (address => bool) reporters;
-  mapping (uint => int8[]) degreesCelsius;
+  uint128 public totalReports;
+  uint128 public requiredReports;
+  mapping (address => bool) public reporters;
+  mapping (uint => int8[]) public degreesCelsius;
 
   /// @param _requiredReports The number of required reports from various accounts before the Oracle considers the data finalized
   constructor(uint128 _requiredReports) public {

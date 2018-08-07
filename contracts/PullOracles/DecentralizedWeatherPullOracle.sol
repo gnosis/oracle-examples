@@ -4,12 +4,11 @@ import "../Interfaces/PullOracle.sol";
 
 contract DecentralizedWeatherPullOracle is PullOracle {
 
-  uint128 totalReports;
-  uint128 requiredReports;
-  mapping (address => bool) reporters;
-  int8[] degreesCelsius;
+  uint128 public totalReports;
+  uint128 public requiredReports;
+  mapping (address => bool) public reporters;
+  int8[] public degreesCelsius;
 
-  /// @param _requiredReports The number of required reports from various accounts before the Oracle considers the data finalized
   constructor(uint128 _requiredReports) public {
     requiredReports = _requiredReports;
   } 
@@ -30,7 +29,7 @@ contract DecentralizedWeatherPullOracle is PullOracle {
     return totalAddedDegrees / int(degreesCelsius.length);
   }
 
-  function resultsFor(bytes32 /*id*/) view public returns (bytes32 result) {
+  function resultsFor(bytes32 id) view public returns (bytes32 result) {
     require(totalReports >= requiredReports, "Not enough people have reported yet");
     return bytes32(getAverageTemp());
   }

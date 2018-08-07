@@ -2,8 +2,8 @@ pragma solidity ^0.4.4;
 import "../../../contracts/Interfaces/OracleConsumer.sol";
 
 contract DecentralizedPullOracleFeedConsumer is OracleConsumer {
-  address oracle;
-  int8 resolution;
+  address public oracle;
+  int8 public resolution;
 
   constructor(address _oracle) public {
     oracle = _oracle;
