@@ -1,0 +1,1 @@
+var CentralizedPullOracleConsumer = artifacts.require("CentralizedPullOracleConsumer");

@@ -30,7 +30,7 @@ contract DecentralizedWeatherPullOracle is PullOracle {
     return totalAddedDegrees / int(degreesCelsius.length);
   }
 
-  function resultsFor(bytes32 id) view public returns (bytes32 result) {
+  function resultsFor(bytes32 /*id*/) view public returns (bytes32 result) {
     require(totalReports >= requiredReports, "Not enough people have reported yet");
     return bytes32(getAverageTemp());
   }

@@ -1,7 +1,8 @@
 pragma solidity ^0.4.4; 
 import "../Interfaces/OracleConsumer.sol";
+import "../lib/time/DateTime.sol";
 
-contract DecentralizedWeatherPushOracleFeed {
+contract DecentralizedWeatherPushOracleFeed is DateTime {
   uint128 totalReports;
   uint128 requiredReports;
   mapping (address => bool) reporters;
@@ -17,7 +18,7 @@ contract DecentralizedWeatherPushOracleFeed {
     require(!reporters[msg.sender], "This address has already submitted a report.");
       reporters[msg.sender] = true;
       totalReports++;
-      degreesCelsius[now].push(_degreesCelsius);
+      degreesCelsius[parseTimestamp(now).day].push(_degreesCelsius);
   }
 
   /// @param _date The date for the weather report in Unix timestamp.
@@ -33,10 +34,15 @@ contract DecentralizedWeatherPushOracleFeed {
   /// @param _oracleConsumer The contract to which this Oracle is going to push data.
   function pushWeather(OracleConsumer _oracleConsumer, uint _date) public {
     require(totalReports >= requiredReports);
-    _oracleConsumer.receiveResult(bytes32(0), bytes32(getAverageTemp(_date)));
+    _oracleConsumer.receiveResult(bytes32(_date), bytes32(getAverageTemp(_date)));
   } 
 
   function() public {
     revert("Please don't send Ether to this contract.");
   }
 }
+
+/* TODO
+Separate DateTime into it's own library contract 
+Create more than just the days [seconds, minutes, years] identifiers
+*/
