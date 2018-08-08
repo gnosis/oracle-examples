@@ -12,7 +12,7 @@ module.exports = function(deployer, network, accounts) {
   if (network == "test" || network == "ganache") {
     deployer.deploy(CentralizedWeatherPullOracle);
     deployer.deploy(CentralizedWeatherPullFeedOracle);
-    // deployer.deploy(DecentralizedWeatherPullOracle, 50);
+    deployer.deploy(DecentralizedWeatherPullOracle, 50);
     deployer.deploy(DecentralizedWeatherPullOracleFeed, 50);
     deployer.deploy(CentralizedWeatherPushOracle);
     deployer.deploy(CentralizedWeatherPushFeedOracle);

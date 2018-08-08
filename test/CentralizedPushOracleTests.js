@@ -1,10 +1,10 @@
 const testGas = require("@gnosis.pm/truffle-nice-tools").testGas;
 const ethUtils = require('ethereumjs-util');
 
+
 const DecentralizedWeatherPullOracleFeed = artifacts.require("DecentralizedWeatherPullOracleFeed");
 const DecentralizedPullOracleFeedConsumer = artifacts.require("DecentralizedPullOracleFeedConsumer");
 
-contracts = [DecentralizedPullOracleFeedConsumer, DecentralizedWeatherPullOracleFeed];
 
 
 contract("DecentralizedPullOracleFeedConsumer", (accounts) => {
@@ -95,7 +95,4 @@ contract("DecentralizedWeatherPullOracleFeed", (accounts) => {
     assert.equal(await _DecentralizedWeatherPullOracleFeed.resultsSet(currentDate), true);
     assert.equal(await _DecentralizedWeatherPullOracleFeed.weatherConditions(currentDate, 0).then(res => res.toString(10)), 13);
   });
-
-
-
 });
