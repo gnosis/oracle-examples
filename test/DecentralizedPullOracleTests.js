@@ -4,11 +4,12 @@ const ethUtils = require('ethereumjs-util');
 const DecentralizedWeatherPullOracleFeed = artifacts.require("DecentralizedWeatherPullOracleFeed");
 const DecentralizedPullOracleFeedConsumer = artifacts.require("DecentralizedPullOracleFeedConsumer");
 
-contracts = [DecentralizedPullOracleFeedConsumer, DecentralizedWeatherPullOracleFeed];
+let contracts = [DecentralizedPullOracleFeedConsumer, DecentralizedWeatherPullOracleFeed];
 
 
 contract("DecentralizedPullOracleFeedConsumer", (accounts) => {
   let _DecentralizedWeatherPullOracleFeed;
+  let _DecentralizedPullOracleFeedConsumer;
 
   before(async () => {
     _DecentralizedWeatherPullOracleFeed = await DecentralizedWeatherPullOracleFeed.deployed();
@@ -57,7 +58,7 @@ contract("DecentralizedPullOracleFeedConsumer", (accounts) => {
     assert.equal(totalReports, 50);
     
     // NOTE: FROM THIS PART ON, NOT FUNCTIONING AS INTENDED (COULD BE TYPECASTING)
-    console.log(`results for ${currentDate}`, await _DecentralizedWeatherPullOracleFeed.resultFor(currentDate));
+    // console.log(`results for ${currentDate}`, await _DecentralizedWeatherPullOracleFeed.resultFor(currentDate));
 
     var consensusResult = await _DecentralizedPullOracleFeedConsumer.getResult(currentDate);
   

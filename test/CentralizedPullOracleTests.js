@@ -4,7 +4,7 @@ const ethUtils = require('ethereumjs-util');
 const CentralizedWeatherPullOracle = artifacts.require("CentralizedWeatherPullOracle");
 const CentralizedPullOracleConsumer = artifacts.require("CentralizedPullOracleConsumer");
 
-contracts = [CentralizedPullOracleConsumer, CentralizedWeatherPullOracle];
+let contracts = [CentralizedPullOracleConsumer, CentralizedWeatherPullOracle];
 
 contract("CentralizedPullOracleConsumer", (accounts) => {
   let _CentralizedWeatherPullOracle;
