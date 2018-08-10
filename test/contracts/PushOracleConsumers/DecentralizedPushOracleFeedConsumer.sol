@@ -13,7 +13,7 @@ contract DecentralizedPushOracleFeedConsumer is OracleConsumer {
     if (msg.sender != oracle) {
       revert("The message sender is not an authorized oracle.");
     }
-
+    // check id and store in bytes32 => bytes32 mapping
     resolution = int8(result);
   }
 }

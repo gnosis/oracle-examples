@@ -57,9 +57,6 @@ contract("DecentralizedPullOracleFeedConsumer", (accounts) => {
     totalReports = totalReports.toString(10);
     assert.equal(totalReports, 50);
     
-    // NOTE: FROM THIS PART ON, NOT FUNCTIONING AS INTENDED (COULD BE TYPECASTING)
-    // console.log(`results for ${currentDate}`, await _DecentralizedWeatherPullOracleFeed.resultFor(currentDate));
-
     var consensusResult = await _DecentralizedPullOracleFeedConsumer.getResult(currentDate);
   
     assert.equal(await _DecentralizedPullOracleFeedConsumer.resolution().then(res => res.toString(10)), 9);

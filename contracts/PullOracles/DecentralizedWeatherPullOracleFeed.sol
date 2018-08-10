@@ -27,7 +27,7 @@ contract DecentralizedWeatherPullOracleFeed is PullOracle, DateTime {
   function getAverageTemp(uint16 _date) public view returns (int) {
     require(totalReports >= requiredReports, "Not enough reporters have reported");
     int totalAddedDegrees;
-    for (uint i=0; i<weatherConditions[_date].length - 1; i++) {
+    for (uint i=0; i<weatherConditions[_date].length; i++) {
       totalAddedDegrees += weatherConditions[_date][i];
     }
     return totalAddedDegrees / int(weatherConditions[_date].length);
@@ -38,7 +38,6 @@ contract DecentralizedWeatherPullOracleFeed is PullOracle, DateTime {
     // require(resultsSet[parseTimestamp(uint(id)).day], "The weather for that date has not been set yet!");
     int finalResults = getAverageTemp(uint16(id));
     return bytes32(finalResults);
-    
   }
 
   function() public {
