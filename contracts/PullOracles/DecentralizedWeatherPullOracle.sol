@@ -23,7 +23,7 @@ contract DecentralizedWeatherPullOracle is PullOracle {
 
   function getAverageTemp() public view returns (int) {
     int totalAddedDegrees;
-    for (uint i=0; i<degreesCelsius.length - 1; i++) {
+    for (uint i=0; i<degreesCelsius.length; i++) {
       totalAddedDegrees += degreesCelsius[i];
     }
     return totalAddedDegrees / int(degreesCelsius.length);

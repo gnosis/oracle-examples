@@ -24,7 +24,7 @@ contract DecentralizedWeatherPushOracleFeed is DateTime {
   /// @param _date The date for the weather report in Unix timestamp.
   function getAverageTemp(uint _date) public view returns (int) {
     int totalAddedDegrees;
-    for (uint i=0; i<degreesCelsius[_date].length - 1; i++) {
+    for (uint i=0; i<degreesCelsius[_date].length; i++) {
       totalAddedDegrees += degreesCelsius[_date][i];
     }
     return totalAddedDegrees / int(degreesCelsius[_date].length);
