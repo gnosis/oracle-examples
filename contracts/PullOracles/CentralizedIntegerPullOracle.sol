@@ -1,22 +1,21 @@
 pragma solidity ^0.4.4;
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
-import "../Interfaces/PullOracle.sol";
 
-contract CentralizedWeatherPullOracle is Ownable, PullOracle {
-  int8 public degreesCelsius;
+contract CentralizedIntegerPullOracle is Ownable {
+  int8 public integer;
   bool public resultSet;
 
-  /// @param _degreesCelsius The degrees for the day in San Francisco, California
-  function inputData(int8 _degreesCelsius) external onlyOwner {
+  /// @param _integer Set the integer result for this pull oracle here
+  function inputData(int8 _integer) external onlyOwner {
     require(resultSet == false, "The result has already been set");
     resultSet = true;
-    degreesCelsius = _degreesCelsius;
+    integer = _integer;
   }
 
   /// @param id The id for the event you want the resultFor, in this centralized case, should be set to 0
   function resultFor(bytes32 id) public view returns (bytes32 result) {
     require(resultSet == true, "Please be patient, the result has not been set yet.");
-    return bytes32(degreesCelsius);
+    return bytes32(integer);
   }
 
   function() public {

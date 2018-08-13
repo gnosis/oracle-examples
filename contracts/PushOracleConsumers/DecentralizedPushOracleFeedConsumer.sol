@@ -1,9 +1,9 @@
 pragma solidity ^0.4.4;
-import "../../../contracts/Interfaces/OracleConsumer.sol";
+import "../Interfaces/OracleConsumer.sol";
 
-contract CentralizedPushOracleConsumer is OracleConsumer {
+contract DecentralizedPushOracleFeedConsumer is OracleConsumer {
   address public oracle;
-  int8 public resolution;
+  mapping (bytes32 => bytes32) resolution;
 
   constructor(address _oracle) public {
     oracle = _oracle;
@@ -13,6 +13,6 @@ contract CentralizedPushOracleConsumer is OracleConsumer {
     if (msg.sender != oracle) {
       revert("The message sender is not an authorized oracle.");
     }
-    resolution = int8(result);
+    resolution[id] = result;
   }
 }

@@ -1,16 +1,15 @@
 pragma solidity ^0.4.4;
-import "../../../contracts/Interfaces/PullOracle.sol";
+import "../Interfaces/PullOracle.sol";
 
 contract DecentralizedPullOracleFeedConsumer {
   PullOracle public oracle;
-  int8 public resolution;
+  mapping (bytes32 => bytes32) public resolution;
 
   constructor(PullOracle _oracle) public {
     oracle = _oracle;
   }
 
   function getResult(bytes32 id) public {
-    bytes32 result = oracle.resultFor(id);
-    resolution = int8(result);
+    resolution[id] = resultFor(id);
   }
 }

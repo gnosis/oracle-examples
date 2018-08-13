@@ -1,37 +1,36 @@
 pragma solidity ^0.4.4; 
-import "../Interfaces/OracleConsumer.sol";
 import "../Interfaces/PullOracle.sol";
 
-contract DecentralizedWeatherPullOracle is PullOracle {
+contract DecentralizedIntegerPullOracle is PullOracle {
 
   uint128 public totalReports;
   uint128 public requiredReports;
   mapping (address => bool) public reporters;
-  int8[] public degreesCelsius;
+  mapping(address => int) public integerFeed;
 
   constructor(uint128 _requiredReports) public {
     requiredReports = _requiredReports;
   } 
   
-  function inputData(int8 _degreesCelsius) public {
+  function inputData(int8 _integer) public {
     require(totalReports < requiredReports, "All the necessary reports have already been reported.");
     require(!reporters[msg.sender], "This address has already submitted a report.");
       reporters[msg.sender] = true;
       totalReports++;
-      degreesCelsius.push(_degreesCelsius);
+      integerFeed[msg.sender] = _integer;
   }
 
-  function getAverageTemp() public view returns (int) {
-    int totalAddedDegrees;
-    for (uint i=0; i<degreesCelsius.length; i++) {
-      totalAddedDegrees += degreesCelsius[i];
+  function getAverage() public view returns (int) {
+    int totalSummed;
+    for (uint i=0; i<integerFeed.length; i++) {
+      totalSummed += integerFeed[i];
     }
-    return totalAddedDegrees / int(degreesCelsius.length);
+    return totalSummed / int(integerFeed.length);
   }
 
   function resultFor(bytes32 id) view public returns (bytes32 result) {
     require(totalReports >= requiredReports, "Not enough people have reported yet");
-    return bytes32(getAverageTemp());
+    
   }
 
   function() public {
