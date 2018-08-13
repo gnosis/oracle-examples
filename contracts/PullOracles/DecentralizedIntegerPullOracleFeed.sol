@@ -21,6 +21,7 @@ contract DecentralizedIntegerPullOracleFeed is PullOracle {
   }
 
   function resultFor(bytes32 id) view public returns (bytes32 result) {
+    require(runningAverage.length > 0, "No results have been set yet");
     return bytes32(runningAverage[uint(id)]);
   }
 

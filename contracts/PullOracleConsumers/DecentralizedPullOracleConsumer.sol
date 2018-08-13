@@ -1,7 +1,7 @@
 pragma solidity ^0.4.4;
 import "../Interfaces/PullOracle.sol";
 
-contract CentralizedPullOracleConsumer {
+contract DecentralizedPullOracleConsumer {
   PullOracle public oracle;
   bytes32 public resolution;
 

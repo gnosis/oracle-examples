@@ -1,7 +1,7 @@
 pragma solidity ^0.4.4;
 import "../Interfaces/OracleConsumer.sol";
 
-contract CentralizedPushOracleConsumer is OracleConsumer {
+contract CentralizedPushOracleFeedConsumer is OracleConsumer {
   address public oracle;
   mapping (bytes32 => bytes32) resolution;
 
