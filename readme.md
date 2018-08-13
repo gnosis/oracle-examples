@@ -10,7 +10,7 @@ While standardized interfaces can be found in the **Interfaces** folder.
 Examples of Oracle Consumers can be found in the **OracleConsumers** folder.   
 
 #### Push Oracle Interface
-`
+```
 interface OracleHandler {
     function receiveResult(bytes32 id, bytes32 result) external;
 }
@@ -19,17 +19,17 @@ receiveResult MUST revert if the msg.sender is not an oracle authorized to provi
 receiveResult MUST revert if receiveResult has been called with the same id before.
 
 receiveResult MAY revert if the id or result cannot be handled by the handler.
-`
+```
 
 #### Pull Oracle Interface
-`
+```
 interface Oracle {
     function resultFor(bytes32 id) external view returns (bytes32 result);
 }
 resultFor MUST revert if the result for an id is not available yet.
 
 resultFor MUST return the same result for an id after that result is available.
-`
+```
 
 #### Branches
 There are two active branches to this repository, `integer-oracles`, which is a very simpler implementation. 
