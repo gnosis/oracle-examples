@@ -1,40 +1,28 @@
 pragma solidity ^0.4.4; 
 import "../Interfaces/OracleConsumer.sol";
-import "../lib/time/DateTime.sol";
 
-contract DecentralizedIntegerPushOracleFeed is DateTime {
-  uint128 public totalReports;
-  uint128 public requiredReports;
+contract DecentralizedIntegerPushOracleFeed {
   mapping (address => bool) public reporters;
-  mapping (uint => int8[]) public integer;
-
-  /// @param _requiredReports The number of required reports from various accounts before the Oracle considers the data finalized
-  constructor(uint128 _requiredReports) public {
-    requiredReports = _requiredReports;
-  }
+  int[] public integerReports;
+  int[] public runningAverage;
    
   function inputData(int8 _integer) public {
-    require(totalReports < requiredReports, "All the necessary reports have already been reported.");
-    require(!reporters[msg.sender], "This address has already submitted a report.");
-      reporters[msg.sender] = true;
-      totalReports++;
-      integer[parseTimestamp(now).day].push(_integer);
+    require(!reporters[msg.sender], "You have already input an integer.");
+      integerReports.push(_integer);
+      runningAverage.push(getAverage());
   }
 
-  /// @param _date The date for the Integer report in Unix timestamp.
-  function getAverageTemp(uint _date) public view returns (int) {
-    int totalAddedDegrees;
-    for (uint i=0; i<integer[_date].length; i++) {
-      totalAddedDegrees += integer[_date][i];
+  function getAverage() public view returns (int) {
+    int totalSummed;
+    for (uint i=0; i<integerReports.length; i++) {
+      totalSummed += integerReports[i];
     }
-    return totalAddedDegrees / int(integer[_date].length);
+    return totalSummed / int(integerReports.length);
   }
 
-  /// @param _date The date for the Integer report in Unix timestamp.
   /// @param _oracleConsumer The contract to which this Oracle is going to push data.
-  function pushInteger(OracleConsumer _oracleConsumer, uint _date) public {
-    require(totalReports >= requiredReports);
-    _oracleConsumer.receiveResult(bytes32(_date), bytes32(getAverageTemp(_date)));
+  function pushInteger(OracleConsumer _oracleConsumer, uint _id) public {
+    _oracleConsumer.receiveResult(bytes32(_id), bytes32(runningAverage[_id]));
   } 
 
   function() public {

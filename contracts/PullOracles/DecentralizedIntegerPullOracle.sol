@@ -6,7 +6,7 @@ contract DecentralizedIntegerPullOracle is PullOracle {
   uint128 public totalReports;
   uint128 public requiredReports;
   mapping (address => bool) public reporters;
-  mapping(address => int) public integerFeed;
+  int[] public integerReports;
 
   constructor(uint128 _requiredReports) public {
     requiredReports = _requiredReports;
@@ -17,20 +17,20 @@ contract DecentralizedIntegerPullOracle is PullOracle {
     require(!reporters[msg.sender], "This address has already submitted a report.");
       reporters[msg.sender] = true;
       totalReports++;
-      integerFeed[msg.sender] = _integer;
+      integerReports.push(_integer);
   }
 
   function getAverage() public view returns (int) {
     int totalSummed;
-    for (uint i=0; i<integerFeed.length; i++) {
-      totalSummed += integerFeed[i];
+    for (uint i=0; i<integerReports.length; i++) {
+      totalSummed += integerReports[i];
     }
-    return totalSummed / int(integerFeed.length);
+    return totalSummed / int(integerReports.length);
   }
 
   function resultFor(bytes32 id) view public returns (bytes32 result) {
     require(totalReports >= requiredReports, "Not enough people have reported yet");
-    
+    return bytes32(getAverage());
   }
 
   function() public {
