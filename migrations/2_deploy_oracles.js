@@ -13,10 +13,10 @@ module.exports = function(deployer, network, accounts) {
     deployer.deploy(CentralizedIntegerPullOracle);
     deployer.deploy(CentralizedIntegerPullFeedOracle);
     deployer.deploy(DecentralizedIntegerPullOracle, 50);
-    deployer.deploy(DecentralizedIntegerPullOracleFeed, 50);
+    deployer.deploy(DecentralizedIntegerPullOracleFeed);
     deployer.deploy(CentralizedIntegerPushOracle);
     deployer.deploy(CentralizedIntegerPushFeedOracle);
     deployer.deploy(DecentralizedIntegerPushOracle, 50);
-    deployer.deploy(DecentralizedIntegerPushOracleFeed, 50);
+    deployer.deploy(DecentralizedIntegerPushOracleFeed);
   }
 };

@@ -10,6 +10,6 @@ contract DecentralizedPullOracleFeedConsumer {
   }
 
   function getResult(bytes32 id) public {
-    resolution[id] = resultFor(id);
+    resolution[id] = oracle.resultFor(id);
   }
 }
